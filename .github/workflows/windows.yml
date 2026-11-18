@@ -1,0 +1,27 @@
+name: Build Roohu ClipForge Windows Installer
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Install desktop dependencies
+        working-directory: desktop
+        run: npm install
+      - name: Build Windows installer
+        working-directory: desktop
+        run: npm run dist:win
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Roohu-ClipForge-Windows-Installer
+          path: desktop/dist/*.exe
+          if-no-files-found: error
