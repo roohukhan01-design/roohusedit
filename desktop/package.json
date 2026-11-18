@@ -15,9 +15,24 @@
   "build": {
     "appId": "com.roohu.clipforge.desktop",
     "productName": "Roohu ClipForge",
-    "directories": { "output": "dist" },
-    "files": ["main.js", "preload.js", "../app/src/main/assets/Roohu-ClipForge.html"],
-    "win": { "target": ["nsis"], "artifactName": "Roohu-ClipForge-Setup-${version}.${ext}" },
-    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "../app/src/main/assets/Roohu-ClipForge.html",
+      "../app/src/main/assets/validate.js"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "artifactName": "Roohu-ClipForge-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   }
 }
