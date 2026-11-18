@@ -1,0 +1,23 @@
+{
+  "name": "roohu-clipforge-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Roohu ClipForge desktop shell",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist:win": "electron-builder --win nsis --x64"
+  },
+  "devDependencies": {
+    "electron": "31.7.7",
+    "electron-builder": "24.13.3"
+  },
+  "build": {
+    "appId": "com.roohu.clipforge.desktop",
+    "productName": "Roohu ClipForge",
+    "directories": { "output": "dist" },
+    "files": ["main.js", "preload.js", "../app/src/main/assets/Roohu-ClipForge.html"],
+    "win": { "target": ["nsis"], "artifactName": "Roohu-ClipForge-Setup-${version}.${ext}" },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
+}
